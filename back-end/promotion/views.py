@@ -1,7 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from .models import Promotion
+from .serializers import PromotionSerializer
 
 
-# Create your views here.
-def index(request):
-    return HttpResponse("Promotion coming soon")
+@api_view(['GET'])
+def get(request):
+    promotions = Promotion.objects.all()
+    serializer = PromotionSerializer(promotions, many=True)
+    return Response(serializer.data)

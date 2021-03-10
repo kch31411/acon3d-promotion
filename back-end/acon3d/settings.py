@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'promotion.apps.PromotionConfig',
     'django.contrib.admin',
     'django.contrib.auth',
