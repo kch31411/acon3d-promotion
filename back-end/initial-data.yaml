@@ -1,0 +1,77 @@
+- model: promotion.Promotion
+  pk: 1
+  fields:
+    title: 많이팔고 많이벌자
+    min_seller: 5
+    max_seller: 20
+    start_date: 2021-03-10
+    end_date: 2021-04-10
+- model: promotion.Promotion
+  pk: 2
+  fields:
+    title: 설날 이벤트
+    min_seller: 6
+    max_seller: 8
+    start_date: 2021-02-01
+- model: promotion.Promotion
+  pk: 3
+  fields:
+    title: 나도 이런 집에 살고 싶다
+    min_seller: 5
+    max_seller: 20
+    start_date: 2021-03-10
+    end_date: 2021-04-10
+- model: promotion.Promotion
+  pk: 4
+  fields:
+    title: 한국에 이런곳이?
+    min_seller: 6
+    max_seller: 7
+    start_date: 2021-04-01
+    end_date: 2021-04-07
+- model: promotion.Promotion
+  pk: 5
+  fields:
+    title: 짧지만 강렬하게
+    min_seller: 5
+    max_seller: 5
+    start_date: 2021-03-15
+    end_date: 2021-03-20
+- model: promotion.Promotion
+  pk: 6
+  fields:
+    title: 단 하루! 인기 작가 특가 모음
+    min_seller: 5
+    max_seller: 6
+    start_date: 2021-03-20
+    end_date: 2021-03-20
+- model: promotion.Promotion
+  pk: 7
+  fields:
+    title: 보름동안 사장님 몰래 할인해봄
+    min_seller: 5
+    max_seller: 8
+    start_date: 2021-03-15
+    end_date: 2021-03-31
+- model: promotion.Promotion
+  pk: 8
+  fields:
+    title: 새학기 적응도 끝 새로운 모델은 여기
+    min_seller: 5
+    max_seller: 6
+    start_date: 2021-03-31
+- model: promotion.Promotion
+  pk: 9
+  fields:
+    title: 짧지만 강렬하게 더 길게
+    min_seller: 5
+    max_seller: 5
+    start_date: 2021-04-20
+    end_date: 2021-04-30
+- model: promotion.Promotion
+  pk: 10
+  fields:
+    title: 이제 여름 모델도 계절탄다
+    min_seller: 5
+    max_seller: 6
+    start_date: 2021-06-01
