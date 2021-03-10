@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, transaction
 import datetime
 
 
@@ -11,7 +11,7 @@ class Promotion(models.Model):
     end_date = models.DateField(null=True)
     participants = models.ManyToManyField('Seller')
 
-    def apply(self, seller):
+    def _apply(self, seller):
         if seller in self.participants.all():
             raise ValueError('Promotion Apply: duplicate participant')
         if self.participants.count() >= self.max_seller:
@@ -20,6 +20,15 @@ class Promotion(models.Model):
             raise ValueError('Promotion Apply: expired')
 
         self.participants.add(seller)
+
+    @classmethod
+    @transaction.atomic
+    def apply(cls, id, seller):
+        promotion = cls.objects.select_for_update().get(id=id)
+
+        promotion._apply(seller)
+
+        return promotion
 
     def __str__(self):
         return self.title

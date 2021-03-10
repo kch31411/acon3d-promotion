@@ -17,9 +17,7 @@ def get(request):
 def apply(request):
     try:
         requester = Seller.objects.get(brand_id=request.data.get('brand_id'))
-        promotion = Promotion.objects.get(id=request.data.get('id'))
-
-        promotion.apply(requester)
+        promotion = Promotion.apply(request.data.get('id'), requester)
 
         return Response(PromotionSerializer(promotion).data, status=status.HTTP_200_OK)
     except ValueError as e:

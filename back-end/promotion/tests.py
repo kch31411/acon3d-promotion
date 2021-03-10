@@ -25,17 +25,17 @@ class PromotionModelTests(TestCase):
         self.assertEqual(promotion.participants.count(), 0)
 
         seller = Seller.objects.get(brand_id='A')
-        promotion.apply(seller)
+        promotion._apply(seller)
         self.assertEqual(promotion.participants.count(), 1)
 
     def test_given_duplicate_application_then_apply_fails(self):
         promotion = Promotion.objects.get(title='Can Apply')
         seller = Seller.objects.get(brand_id='A')
-        promotion.apply(seller)
+        promotion._apply(seller)
         self.assertEqual(promotion.participants.count(), 1)
 
         with self.assertRaises(ValueError, msg='Promotion Apply: duplicate participant'):
-            promotion.apply(seller)
+            promotion._apply(seller)
             self.assertEqual(promotion.participants.count(), 1)
 
     def test_when_promotion_expired_then_apply_fails(self):
@@ -44,7 +44,7 @@ class PromotionModelTests(TestCase):
 
         seller = Seller.objects.get(brand_id='A')
         with self.assertRaises(ValueError, msg='Promotion Apply: expired'):
-            promotion.apply(seller)
+            promotion._apply(seller)
             self.assertEqual(promotion.participants.count(), 0)
 
     def test_when_promotion_fully_booked_then_apply_fails(self):
@@ -53,7 +53,7 @@ class PromotionModelTests(TestCase):
 
         seller = Seller.objects.create(brand_id='D')
         with self.assertRaises(ValueError, msg='Promotion Apply: fully booked'):
-            promotion.apply(seller)
+            promotion._apply(seller)
             self.assertEqual(promotion.participants.count(), 3)
 
 # TODO: integration test
