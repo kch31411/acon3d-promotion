@@ -8,6 +8,10 @@ class Promotion(models.Model):
     max_seller = models.IntegerField()
     start_date = models.DateField()
     end_date = models.DateField(null=True)
+    participants = models.ManyToManyField('Seller')
+
+    def apply(self, seller):
+        self.participants.add(seller)
 
     def __str__(self):
         return self.title
