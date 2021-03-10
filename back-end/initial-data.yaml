@@ -75,3 +75,43 @@
     min_seller: 5
     max_seller: 6
     start_date: 2021-06-01
+- model: promotion.Seller
+  pk: 1
+  fields:
+    brand_id: A
+- model: promotion.Seller
+  pk: 2
+  fields:
+    brand_id: B
+- model: promotion.Seller
+  pk: 3
+  fields:
+    brand_id: C
+- model: promotion.Seller
+  pk: 4
+  fields:
+    brand_id: D
+- model: promotion.Seller
+  pk: 5
+  fields:
+    brand_id: E
+- model: promotion.Seller
+  pk: 6
+  fields:
+    brand_id: F
+- model: promotion.Seller
+  pk: 7
+  fields:
+    brand_id: G
+- model: promotion.Seller
+  pk: 8
+  fields:
+    brand_id: H
+- model: promotion.Seller
+  pk: 9
+  fields:
+    brand_id: I
+- model: promotion.Seller
+  pk: 10
+  fields:
+    brand_id: J
