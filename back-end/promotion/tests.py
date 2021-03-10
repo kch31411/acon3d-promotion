@@ -34,8 +34,7 @@ class PromotionModelTests(TestCase):
         promotion.apply(seller)
         self.assertEqual(promotion.participants.count(), 1)
 
-        promotion.apply(seller)
-        with self.assertRaises(ValueError, msg='duplicate participant'):
+        with self.assertRaises(ValueError, msg='Promotion Apply: duplicate participant'):
             promotion.apply(seller)
             self.assertEqual(promotion.participants.count(), 1)
 
@@ -44,7 +43,7 @@ class PromotionModelTests(TestCase):
         self.assertEqual(promotion.participants.count(), 0)
 
         seller = Seller.objects.get(brand_id='A')
-        with self.assertRaises(ValueError, msg='expired'):
+        with self.assertRaises(ValueError, msg='Promotion Apply: expired'):
             promotion.apply(seller)
             self.assertEqual(promotion.participants.count(), 0)
 
@@ -53,7 +52,7 @@ class PromotionModelTests(TestCase):
         self.assertEqual(promotion.participants.count(), 3)
 
         seller = Seller.objects.create(brand_id='D')
-        with self.assertRaises(ValueError, msg='fully booked'):
+        with self.assertRaises(ValueError, msg='Promotion Apply: fully booked'):
             promotion.apply(seller)
             self.assertEqual(promotion.participants.count(), 3)
 
